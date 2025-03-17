@@ -17,7 +17,7 @@ clc; close all
 %                     'spline' Cheng-Knorr & Sonnendrücker cubic spline scheme
 inter_type = 'spline';
 % Number of cells for uniform phase-space grid
-N = 10; M = 201;
+N = 10; M = 21;
 % Problem parameters 
 k = 0.5; alpha = 0.05; vmax = 2*pi;
 % CFL condition
@@ -30,6 +30,7 @@ L = 2*pi/k;
 x = linspace(0, L, N); v = linspace(-vmax, vmax, M);
 dx = x(2)-x(1); dv = v(2)-v(1);
 [X, V] = meshgrid(x, v); X = X'; V = V';
+
 
 %% Initial conditions
 f = exp(-V.^2/2)/sqrt(2*pi).*(1.0 + alpha*cos(k*X)).*V.^2;
